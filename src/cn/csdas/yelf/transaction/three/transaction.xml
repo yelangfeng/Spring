@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--获取数据库参数-->
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <!--配置c3p0连接池:获取配置文件-->
+    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!--配置spring JDBC模板-->
+    <!--
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+    -->
+    
+    <!--配置bean对象-->
+    <bean id="accountDao" class="cn.csdas.yelf.transaction.three.AccountDaoImpl">
+        <!--AccountDaoImpl继承JdbcDaoSupport类，包含JdbcTemplate变量,切有传入DataSource
+        对象后会有方法创建JdbcTemplate对象，因此，可以注释JdbcTemplate实例-->
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+    
+    <bean id="accountService" class="cn.csdas.yelf.transaction.three.AccountServiceImple">
+        <property name="accountDao" ref="accountDao"/>
+        <!--注入事物管理模板-->
+        <property name="transactionTemplate" ref="transactionTemplate"/>
+    </bean>
+
+
+    <!--编程式事物-->
+    <!--配置平台事物管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="datasource"/>
+    </bean>
+
+    <!--配置事物管理的模板-->
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+    
+</beans>

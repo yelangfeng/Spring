@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="car1" class="cn.csdas.yelf.ioc.property.Car" scope="singleton">
+        <constructor-arg name="name" value="宝马"/>
+        <constructor-arg name="price" value="1000000"/>
+    </bean>
+    <bean id="car2" class="cn.csdas.yelf.ioc.property.Cat">
+        <property name="name" value="奔驰"/>
+        <property name="price" value="800000"/>
+    </bean>
+    <bean id="emp" class="cn.csdas.yelf.ioc.property.Employee">
+        <property name="name" value="张三"/>
+        <property name="car" ref="car1"/>
+    </bean>
+
+    <bean id="emp1" class="cn.csdas.yelf.ioc.property.Employee" p:name="李四" p:car-ref="car1">
+    </bean>
+
+    <bean id="car3" class="cn.csdas.yelf.ioc.property.Cat">
+        <property name="name" value="#{'三蹦子'}"/>
+        <property name="price" value="#{8000}"/>
+    </bean>
+
+    <bean id="emp2" class="cn.csdas.yelf.ioc.property.Employee">
+        <property name="name" value="#{car3.name}"/>
+        <property name="car" value="#{car1}"/>
+    </bean>
+</beans>

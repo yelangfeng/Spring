@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="school" class="cn.csdas.yelf.ioc.collection.School">
+        <property name="name" value="东风小学"/>
+        <property name="arrs">
+            <list>
+                <value>一年级</value>
+                <value>二年级</value>
+                <value>三年级</value>
+                <value>四年级</value>
+            </list>
+        </property>
+        <property name="list">
+            <list>
+                <value>总务处</value>
+                <value>后勤处</value>
+                <value>教务处</value>
+                <value>图书馆</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>操场</value>
+                <value>篮球场</value>
+                <value>足球场</value>
+                <value>草坪</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="a" value="音乐课"/>
+                <entry key="b" value="数学课"/>
+                <entry key="c" value="语文课"/>
+                <entry key="d" value="英语课"/>
+            </map>
+        </property>
+    </bean>
+</beans>
