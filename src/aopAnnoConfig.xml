@@ -5,6 +5,7 @@
 
     <!--在配置文件中开启注解的AOP的开发-->
     <aop:aspectj-autoproxy/>
+
     <!--配置目标类-->
     <bean id="orderDao" class="cn.csdas.yelf.aop.zhujie.OrderDao"></bean>
 
