@@ -1,8 +1,12 @@
 package cn.csdas.yelf.test;
 
+import org.springframework.stereotype.Controller;
+
+@Controller("dog")
 public class Dog implements Animal {
     private String name;
     private String color;
+    private Host host;
 
     public String getName() {
         return name;
@@ -30,6 +34,11 @@ public class Dog implements Animal {
         return "Dog{" +
                 "name='" + name + '\'' +
                 ", color='" + color + '\'' +
+                ", host=" + host +
                 '}';
+    }
+
+    public void setHost(Host host) {
+        this.host = host;
     }
 }

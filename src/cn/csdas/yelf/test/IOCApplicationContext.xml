@@ -6,5 +6,10 @@
     <bean name="animal" class="cn.csdas.yelf.test.Dog">
         <property name="name" value="旺财"/>
         <property name="color" value="白色"/>
+        <property name="host" ref="host"/>
+    </bean>
+    <bean name="host" class="cn.csdas.yelf.test.Host">
+        <property name="name" value="张三"/>
+        <property name="age" value="30"/>
     </bean>
 </beans>
