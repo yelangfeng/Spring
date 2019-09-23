@@ -2,7 +2,6 @@ package cn.csdas.yelf.test;
 
 import org.springframework.stereotype.Controller;
 
-@Controller("dog")
 public class Dog implements Animal {
     private String name;
     private String color;

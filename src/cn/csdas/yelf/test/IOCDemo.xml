@@ -2,5 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="animal" class="cn.csdas.yelf.test.Dog"/>
+
+    <bean id="animal" class="cn.csdas.yelf.test.Dog">
+        <property name="name" value="旺财1111"/>
+        <property name="color" value="红色"/>
+        <property name="host" ref="host"/>
+    </bean>
+
+    <bean id="host" class="cn.csdas.yelf.test.Host">
+        <property name="name" value="张三"/>
+        <property name="age" value="30"/>
+    </bean>
+
 </beans>

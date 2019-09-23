@@ -7,11 +7,13 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 
 public class IOCDemo {
 
+    //xml配置
     @Test
     public void demo1(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("cn/csdas/yelf/test/IOCDemo.xml");
         Dog animal = (Dog)ac.getBean("animal");
         animal.eat();
+        System.out.println(animal);
     }
 
     @Test
@@ -19,5 +21,15 @@ public class IOCDemo {
         ApplicationContext ac = new FileSystemXmlApplicationContext("src/cn/csdas/yelf/test/IOCDemo.xml");
         Dog animal = (Dog)ac.getBean("animal");
         animal.eat();
+    }
+
+    //注解
+    @Test
+    public void demo3(){
+        ApplicationContext ac = new ClassPathXmlApplicationContext("cn/csdas/yelf/test/IOCDemo1.xml");
+        Host1 host1 = (Host1)ac.getBean("host1");
+        System.out.println(host1);
+        Dog1 dog1 = (Dog1)ac.getBean("dog1");
+        System.out.println(dog1);
     }
 }

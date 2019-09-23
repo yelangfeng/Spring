@@ -3,8 +3,11 @@ package cn.csdas.yelf.test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-public class Host {
+@Component("host1")
+public class Host1 {
+    @Value("李四")
     private String name;
+    @Value("23")
     private int age;
 
     public String getName() {
