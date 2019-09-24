@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="animal" class="cn.csdas.yelf.test.Dog">
+    <bean id="animal" class="cn.csdas.yelf.test.Dog" init-method="init" destroy-method="destroy">
         <property name="name" value="旺财1111"/>
         <property name="color" value="红色"/>
         <property name="host" ref="host"/>

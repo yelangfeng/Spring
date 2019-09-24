@@ -28,6 +28,14 @@ public class Dog1 implements Animal {
     @Qualifier("host1")
     private Host1 host1;
 
+    public void init(){
+        System.out.println("对象创建了！");
+    }
+
+    public void destroy(){
+        System.out.println("对象销毁了");
+    }
+
     public String getName() {
         return name;
     }

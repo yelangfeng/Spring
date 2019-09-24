@@ -7,6 +7,15 @@ public class Dog implements Animal {
     private String color;
     private Host host;
 
+
+    public void init(){
+        System.out.println("对象创建了！");
+    }
+
+    public void destroy(){
+        System.out.println("对象销毁了");
+    }
+
     public String getName() {
         return name;
     }
