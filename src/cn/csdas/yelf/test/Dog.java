@@ -7,6 +7,15 @@ public class Dog implements Animal {
     private String color;
     private Host host;
 
+    public Dog(){
+        super();
+    }
+
+    public Dog(String name, String color, Host host) {
+        this.name = name;
+        this.color = color;
+        this.host = host;
+    }
 
     public void init(){
         System.out.println("对象创建了！");
@@ -37,6 +46,10 @@ public class Dog implements Animal {
         System.out.println("吃骨头");
     }
 
+    public void setHost(Host host) {
+        this.host = host;
+    }
+
     @Override
     public String toString() {
         return "Dog{" +
@@ -44,9 +57,5 @@ public class Dog implements Animal {
                 ", color='" + color + '\'' +
                 ", host=" + host +
                 '}';
-    }
-
-    public void setHost(Host host) {
-        this.host = host;
     }
 }

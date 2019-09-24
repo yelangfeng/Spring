@@ -12,10 +12,12 @@ public class IOCDemo {
     @Test
     public void demo1(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("cn/csdas/yelf/test/IOCDemo.xml");
-        System.out.println("对象已创建！");
         Dog animal = (Dog)ac.getBean("animal");
         animal.eat();
         System.out.println(animal);
+        Dog animal1 = (Dog)ac.getBean("animal");
+        System.out.println(animal1);
+        ((ClassPathXmlApplicationContext) ac).close();
     }
 
     @Test
