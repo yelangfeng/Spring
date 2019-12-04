@@ -10,6 +10,7 @@
         <aop:pointcut id="pointcut1" expression="execution(* cn.csdas.yelf.aop.xml.test.UserDaoImpl.save(..))"/>
         <aop:aspect ref="myAspect">
             <aop:before method="before" pointcut-ref="pointcut1"/>
+
         </aop:aspect>
     </aop:config>
 
