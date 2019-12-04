@@ -17,5 +17,7 @@ public class AopTest {
     @Test
     public void demo1(){
         userDao.save();
+        userDao.delete();
+        userDao.update();
     }
 }

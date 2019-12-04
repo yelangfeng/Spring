@@ -8,9 +8,14 @@
 
     <aop:config>
         <aop:pointcut id="pointcut1" expression="execution(* cn.csdas.yelf.aop.xml.test.UserDaoImpl.save(..))"/>
+        <aop:pointcut id="pointcut2" expression="execution(* cn.csdas.yelf.aop.xml.test.UserDaoImpl.delete(..))"/>
+        <aop:pointcut id="pointcut3" expression="execution(* cn.csdas.yelf.aop.xml.test.UserDaoImpl.update(..))"/>
+        <aop:pointcut id="pointcut4" expression="execution(* cn.csdas.yelf.aop.xml.test.UserDaoImpl.select(..))"/>
+
         <aop:aspect ref="myAspect">
             <aop:before method="before" pointcut-ref="pointcut1"/>
-
+            <aop:after method="after" pointcut-ref="pointcut2"/>
+            <aop:around method="around" pointcut-ref="pointcut3"/>
         </aop:aspect>
     </aop:config>
 
