@@ -16,6 +16,7 @@
             <aop:before method="before" pointcut-ref="pointcut1"/>
             <aop:after method="after" pointcut-ref="pointcut2"/>
             <aop:around method="around" pointcut-ref="pointcut3"/>
+            <aop:after-throwing method="exception" pointcut-ref="pointcut1"/>
         </aop:aspect>
     </aop:config>
 

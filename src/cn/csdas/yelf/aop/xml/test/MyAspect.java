@@ -18,4 +18,8 @@ public class MyAspect {
         System.out.println("环绕后通知...");
     }
 
+    public void exception(){
+        System.out.println("抛出异常后通知...");
+    }
+
 }
